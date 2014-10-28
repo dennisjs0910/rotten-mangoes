@@ -6,7 +6,9 @@ class CreateMovies < ActiveRecord::Migration
       t.integer :runtime_in_minutes
       t.text :description
       t.string :poster_image_url
+      t.string :image
       t.datetime :release_date
+
 
       t.timestamps
     end
