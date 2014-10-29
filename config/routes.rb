@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
 
-   resources :movies do
+  resources :movies do
     resources :reviews, only: [:new, :create]
   end
+
+  namespace :admin do
+    resources :users
+  end
+
   resources :users, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
+  
   root to: 'movies#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

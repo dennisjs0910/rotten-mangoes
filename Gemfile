@@ -41,3 +41,14 @@ gem 'bcrypt', '~> 3.1.7'
 #Use carrier wave for upload
 gem 'carrierwave'
 gem 'rmagick', :require => 'RMagick'
+
+
+#factory girl and faker to create random number of users
+gem 'factory_girl_rails'
+gem 'faker'
+
+
+#default number of objects within a page
+gem 'kaminari'
+
+gem 'pry'
