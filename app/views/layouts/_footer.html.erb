@@ -5,12 +5,12 @@
       <% if current_user.admin == false %>
         Signed in as <%= current_user.full_name %> (<%= link_to "Log out", session_path("current"), method: :delete %>)
       <% else %>
-        Signed in as Admin (<%= link_to "Log out", session_path("current"), method: :delete %>)<br>
+        Signed in as Admin (<%= link_to "Log out", sessions_path("current"), method: :delete %>)<br>
         <%= link_to "Users Management", admin_users_path %>
       <% end %>
 
     <% else %>
-      <%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_user_path %>
+      <%= link_to "Log In", new_sessions_path %> | <%= link_to "Sign Up", new_user_path %>
     <% end %>
   </small>
 </footer>

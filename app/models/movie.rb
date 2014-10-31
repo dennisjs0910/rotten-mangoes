@@ -1,3 +1,4 @@
+# require "pry"
 class Movie < ActiveRecord::Base
   has_many :reviews
 
@@ -15,22 +16,34 @@ class Movie < ActiveRecord::Base
   validates :description,
     presence: true
 
+  validates :release_date, presence: true
 
-  validates :release_date,
-    presence: true
-
-  validate :release_date_is_in_the_future
   
   def review_average
     reviews.sum(:rating_out_of_ten)/reviews.size if reviews.size > 0
   end
 
-  protected
+  def self.search(search, duration)
+    case duration.to_i
+    when 90
+      runtime = "runtime_in_minutes < 90"
+    when 90120
+      runtime = "runtime_in_minutes > 90 AND runtime_in_minutes < 120"
+    when 120
+      runtime = "runtime_in_minutes > 120"
+    else
+      runtime = ""
+    end
 
-  def release_date_is_in_the_future
-    if release_date.present?
-      errors.add(:release_date, "should probably be in the future") if release_date < Date.today
+    if search
+      where("title LIKE :search
+       OR director LIKE :search ", 
+       {:search => "%#{search}%"}).where(runtime)
+    else
+      all
     end
   end
+
+  protected
 
 end

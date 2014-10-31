@@ -8,14 +8,6 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def new
-  end
-
-  def create
-    @admin = User.find(params[:id])
-    @admin.update_att
-  end
-
   def edit
     @user = User.find(params[:id])
   end
@@ -31,14 +23,27 @@ class Admin::UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
-    redirect_to admin_users_path
+    respond_to do |format|
+      if @user.destroy
+        # Tell the UserMailer to send a goodbye email after destroy
+        UserMailer.bye_email(@user).deliver
+ 
+        format.html { redirect_to(admin_users_path, notice: 'User was successfully deleted.') }
+        format.json { render json: @user, status: :destroyed, location: @user }
+      else
+        format.html { render :new }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+    
 
   end
 
   protected
 
   def user_params
+
+
     params.require(:user).permit(
       :email, :password, :admin, :firstname, :lastname
       )

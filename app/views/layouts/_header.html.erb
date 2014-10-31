@@ -1,0 +1,7 @@
+<header>
+  <%= form_tag("/search", method: "get") do %>
+    <%= label_tag(:movie, "Search for:") %>
+    <%= text_field_tag(:movie) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+</header>

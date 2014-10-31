@@ -1,6 +1,8 @@
+# require "pry"
 class MoviesController < ApplicationController
- def index
-    @movies = Movie.all
+  def index
+      # binding.pry
+      @movies = Movie.search(params[:search], params[:duration])  
   end
 
   def show
@@ -48,4 +50,5 @@ class MoviesController < ApplicationController
       :title, :release_date, :director, :runtime_in_minutes, :poster_image_url, :description, :image
     )
   end
+
 end
