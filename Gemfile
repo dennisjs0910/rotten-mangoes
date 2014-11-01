@@ -52,3 +52,10 @@ gem 'faker'
 gem 'kaminari'
 
 gem 'pry'
+
+gem 'bootstrap-sass', '~> 3.3.0'
+gem 'autoprefixer-rails'
+
+group :production do
+  gem 'pg'
+end
