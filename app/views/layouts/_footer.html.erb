@@ -3,7 +3,7 @@
     <% if current_user %>
     
       <% if current_user.admin == false %>
-        Signed in as <%= current_user.full_name %> (<%= link_to "Log out", session_path("current"), method: :delete %>)
+        Signed in as <%= current_user.firstname %>
       <% else %>
         Signed in as Admin (<%= link_to "Log out", sessions_path("current"), method: :delete %>)<br>
         <%= link_to "Users Management", admin_users_path %>
