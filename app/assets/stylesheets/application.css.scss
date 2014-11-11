@@ -7,7 +7,61 @@ body {
 }
 
 .title {
-  color: #CC7A29;
-  font-size: 150%;
+  color: white;
+  font-size: 35px;
   position: relative;
-  }
+  margin-right: 2em;
+  line-height: 50px;
+}
+
+.searchBar{
+  float: right;
+}
+
+.active {
+  margin-left: 5px;
+}
+
+#submitButton {
+  margin-top: 5px;
+}
+
+.loginBox {
+  text-align: center;
+  margin-top: 5px;
+}
+
+#loginbutton {
+  margin-bottom: 10px;
+  color: white;
+}
+
+.logindiv {
+  background-color: #E8591C;
+  width: 500px;
+  min-height: 50px;
+  margin-top: 10px;
+  margin: auto;
+  border-radius: 30px;
+}
+
+input[name="commit"][type="submit"] {
+  background-color: red;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.textForm {
+  color: white;
+  text-align: center;
+}
+
+.container-fluid {
+  background-color: #E8591C;
+}
+
+a {
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  min-width: 80px;
+}

@@ -1,12 +1,14 @@
-<p>Advanced Search Form</p>
-  <%= form_tag(movies_path, :method => "get", id: "search-form") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search by Movies or Directors" %>
-<br>
+<div class="advancedSearchFrom">
+  <p>Advanced Search Form</p>
+    <%= form_tag(movies_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search by Movies or Directors" %>
+  <br>
 
-  <%= select_tag(:duration, options_for_select([["Select Duration of Movie.", 0], ["Under 90 minutes", 90], ["Between 90 and 120 minutes", 90120], ["Over 120 minutes", 120]])) %>
-  <%= submit_tag "Search", name: nil %>
-  <% end %>
-<br>
+    <%= select_tag(:duration, options_for_select([["Select Duration of Movie.", 0], ["Under 90 minutes", 90], ["Between 90 and 120 minutes", 90120], ["Over 120 minutes", 120]])) %>
+    <%= submit_tag "Search", name: nil %>
+    <% end %>
+  <br>
+</div>
 <%= link_to "Submit a movie!", new_movie_path %> 
 <hr>
 <% if @movies %>
